@@ -2,7 +2,7 @@
 
 ## Containerized SmartEmbed
 
-This repository was created to containerize SmartEmbed, and allow experiments to be 
+This repository fork was created to containerize SmartEmbed, and allow experiments to be 
 carried out. It requires docker installed, for instructions check out [docker's documentation](https://docs.docker.com/engine/install/)
 
 The script `make_embeddings.py` that gets executed within the container expects a 
@@ -12,6 +12,7 @@ the `output` directory.
 
 To get the results run:
 ```
+mkdir output
 docker build --no-cache -t smartemebed .
 docker run --rm -it  -v $(pwd)/output:/app/output  smartemebed:latest
 ```
