@@ -1,0 +1,6 @@
+numpy<=1.16.1
+pandas 
+tqdm
+gensim
+lxml<5
+gdown
