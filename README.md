@@ -1,5 +1,23 @@
 # SmartEmbed Web Tool
 
+## Containerized SmartEmbed
+
+This repository was created to containerize SmartEmbed, and allow experiments to be 
+carried out. It requires docker installed, for instructions check out [docker's documentation](https://docs.docker.com/engine/install/)
+
+The script `make_embeddings.py` that gets executed within the container expects a 
+`functions.csv` CSV file, where each row contains a solidity function. It calculates
+the embeddings of each function and outputs `SmartEmbed_embeddings.csv` inside 
+the `output` directory. 
+
+To get the results run:
+```
+docker build --no-cache -t smartemebed .
+docker run --rm -it  -v $(pwd)/output:/app/output  smartemebed:latest
+```
+
+## Previous README contents
+
 SmartEmbed is a web service tool for clone detection & bug detection for smart contracts. **We have newly added the [interface of using smartembed](#smartembed-interface-usage
 ) for estimating similarities between different smart contracts, please feel free to have a try! :) Any questions and feedback are very welcome.** 
 
