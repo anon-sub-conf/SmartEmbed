@@ -15,6 +15,7 @@ RUN apt-get install -y --no-install-recommends \
     libxml2-dev \
     libxslt-dev \
     openjdk-11-jdk-headless \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -22,6 +23,7 @@ COPY requirements.txt ./
 RUN pip install --upgrade pip setuptools wheel && \
     pip install -r requirements.txt
 
-COPY . .
+COPY ./download_models.sh ./
 RUN ./download_models.sh
+COPY . . 
 CMD ["python", "make_embeddings.py"]
